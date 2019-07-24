@@ -1,0 +1,30 @@
+<sly
+	data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html" />
+<sly data-sly-call="${clientlib.css @ categories='crypto'}" />
+
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<div data-sly-test="${wcmmode.edit}" class="cq-placeholder"
+	data-emptytext="Edit Crypto Container Component"></div>
+
+<h1 align="center">Analysis of Crypto Currencies</h1>
+
+<div class="container">
+	<div class="col span_1_of_3">
+		<div
+			data-sly-resource="${@path='par', resourceType='/apps/CryptoCurrency/components/content/cryptotile'}"
+			data-sly-unwrap></div>
+	</div>
+	<div class="col span_1_of_3">
+		<div
+			data-sly-resource="${@path='par1', resourceType='/apps/CryptoCurrency/components/content/cryptotile'}"
+			data-sly-unwrap></div>
+	</div>
+	<div class="col span_1_of_3">
+		<div
+			data-sly-resource="${@path='par2', resourceType='/apps/CryptoCurrency/components/content/cryptotile'}"
+			data-sly-unwrap></div>
+	</div>
+</div>
+

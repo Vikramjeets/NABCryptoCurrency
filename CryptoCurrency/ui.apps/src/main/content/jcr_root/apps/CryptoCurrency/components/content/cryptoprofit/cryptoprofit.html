@@ -1,0 +1,72 @@
+<sly
+	data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html" />
+<sly data-sly-call="${clientlib.css @ categories='crypto'}" />
+
+<img src="${properties.logo}" alt="bckgound" class="bg" />
+<sly
+	data-sly-use.CryptoProfit="${'com.adobe.aem.core.models.CryptoProfitModel'}">
+<div data-sly-test="${wcmmode.edit}" class="cq-placeholder"
+	data-emptytext="Edit Crypto Tile Component" data-sly-unwrap></div>
+
+
+<div class="container-content">
+
+	<h1 align="center">
+		<u>Crypto Trade Datails for ${properties.label}</u>
+	</h1>
+
+	<table align="center">
+		<tr>
+			<th><h1>${properties.label}</h1></th>
+			<th><h1>Trade Time</h1></th>
+			<th><h1>Trade Price</h1></th>
+		</tr>
+
+		<div data-sly-list.listItem="${CryptoProfit.items}" data-sly-unwrap>
+
+			<tr>
+				<td><h2></h2></td>
+				<td><h2>${listItem.time}</h2></td>
+				<td><h2>$${listItem.price}</h2></td>
+			</tr>
+		</div>
+	</table>
+
+
+	<h1 align="center">
+		<u>Profit Advice for ${properties.label}</u>
+	</h1>
+	<table align="center">
+
+		<tr>
+			<th><h1>${properties.label}</h1></th>
+			<th><img class="logo" src="${properties.icon}" /></th>
+		</tr>
+		<tr>
+			<td><h2>Buy</h2></td>
+			<td><h2>Sell</h2></td>
+		</tr>
+		<tr>
+			<td><h2>Price: $${CryptoProfit.buyPrice}</h2></td>
+			<td><h2>Price: $${CryptoProfit.sellPrice}</h2></td>
+		</tr>
+
+		<tr>
+			<td><h2>Time: ${CryptoProfit.strBuyTime}</h2></td>
+			<td><h2>Time: ${CryptoProfit.strSellTime}</h2></td>
+		</tr>
+		<tr>
+			<td><h2>Profit</h2></td>
+			<td><h2>$${CryptoProfit.profit}</h2></td>
+		</tr>
+	</table>
+
+	<h1>
+		<a href="/content/CryptoCurrency/en/CryptoHome.html">Back</a>
+	</h1>
+
+</div>
+</sly>
+
+</img>
+
