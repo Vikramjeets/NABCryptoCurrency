@@ -43,19 +43,37 @@ public class CryptoProfitModel {
 	@Inject @Default(values="BTC")
 	public String label;
 
+	/**
+	 * The buy Price of the currency
+	 */
 	public double buyPrice;
 
+	/**
+	 * The sell Price of the currency
+	 */
 	public double sellPrice;
 
 	@Inject @Default(values="0945")
 	public int buyTime;
 
+	/**
+	 * The buy Time of the currency
+	 */
 	public int sellTime;
 
+	/**
+	 * The string Sell time  of the currency
+	 */
 	public String strSellTime;
 
+	/**
+	 * The buy Time of the currency
+	 */
 	public String strBuyTime;
 
+	/**
+	 * The Profit made 
+	 */
 	public double profit;
 
 	public JSONArray quotes;
@@ -64,30 +82,58 @@ public class CryptoProfitModel {
 		return label;
 	}
 
+	/**
+	 * Gets the Buy Price in Double format.
+	 * @return this Sell Time.
+	 */
 	public double getBuyPrice() {
 		return buyPrice;
 	}
 
+	/**
+	 * Gets the Buy Time in Integer format.
+	 * @return this Sell Time.
+	 */
 	public int getBuyTime() {
 		return buyTime;
 	}
 
+	/**
+	 * Gets the Buy Time in String format.
+	 * @return this Buy Time.
+	 */
 	public String getStrBuyTime() {
 		return strBuyTime;
 	}
 
+	/**
+	 * Gets the Sell Price in Double format.
+	 * @return this Sell Price.
+	 */
 	public double getSellPrice() {
 		return sellPrice;
 	}
 
+	/**
+	 * Gets the Sell Time in Integer format.
+	 * @return this Sell Time.
+	 */
 	public int getSellTime() {
 		return sellTime;
 	}
 
+	/**
+	 * Gets the Sell Time in String format.
+	 * @return this Sell Time.
+	 */
 	public String getStringSellTime() {
 		return strSellTime;
 	}
 
+	/**
+	 * Gets the Profit in Double format.
+	 * @return this Profit.
+	 */
 	public double getProfit() {
 		return profit;
 	}
@@ -105,7 +151,6 @@ public class CryptoProfitModel {
 		for (int i = 0; i < jsonarray.length(); i++) {
 			JSONObject obj1 = jsonarray.getJSONObject(i);
 			if(label.equalsIgnoreCase(obj1.getString("currency"))) {
-
 				quotes = obj1.getJSONArray("quotes");
 
 				// Calling getMax() method for getting max value
@@ -120,12 +165,9 @@ public class CryptoProfitModel {
 
 				StringBuilder sb = new StringBuilder(strBuyTime);
 				sb.insert(2, ":");
-
 				strBuyTime = sb.toString();
-
 				StringBuilder sb1 = new StringBuilder(strSellTime);
 				sb1.insert(2, ":");
-
 				strSellTime =sb1.toString();
 			}
 
@@ -135,7 +177,8 @@ public class CryptoProfitModel {
 
 	/**
 	 * This method calculates the maximum value from the json. 
-	 * @return minValue
+	 *  * @param JSONArray 
+	 * @return maxValue
 	 */	
 	public  double getMax(JSONArray inputArray) throws JSONException{ 
 		double maxValue = inputArray.getJSONObject(0).getDouble("price"); 
@@ -159,6 +202,7 @@ public class CryptoProfitModel {
 
 	/**
 	 * This method calculates the minimum value from the json. 
+	 * @param JSONArray 
 	 * @return minValue
 	 */	
 	public  double getMin(JSONArray inputArray) throws JSONException{ 
@@ -183,24 +227,17 @@ public class CryptoProfitModel {
 	 * @return List<ValueMap>
 	 */
 	public List<ValueMap> getItems() throws Exception  {
-
 		List<ValueMap> properties = new ArrayList<>();
-
 		for(int j=0; j<quotes.length(); j++) {
-
 			Map<String, Object> map = new HashMap<>();
-
 			StringBuilder sb = new StringBuilder(quotes.getJSONObject(j).getString("time"));
 			sb.insert(2, ":");
-
 			map.put("time",sb.toString());
 			map.put("price",quotes.getJSONObject(j).getString("price"));
-
 			properties.add(new ValueMapDecorator(map));
 		}
 		return properties;
 	}
-
 
 }
 
