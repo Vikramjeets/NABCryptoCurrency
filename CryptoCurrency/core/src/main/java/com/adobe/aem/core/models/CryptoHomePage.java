@@ -32,18 +32,34 @@ public class CryptoHomePage {
 	@Inject @Default(values="/content/CryptoCurrency/en/CryptoHome/BTCPage")
 	public String cta;
 
+	/**
+	 * Gets the Label of the currency.
+	 * @return this Profit.
+	 */
 	public String getLabel() {
 		return label;
 	}
 
+	/**
+	 * Gets the Logo path.
+	 * @return this logo.
+	 */
 	public String getLogo() {
 		return logo;
 	}
 
+	/**
+	 * Gets the Alt for the Logo.
+	 * @return this Alt.
+	 */
 	public String getAlt() {
 		return alt;
 	}
 
+	/**
+	 * Gets the Cta Path for the logo.
+	 * @return this Cta.
+	 */
 	public String getCta() {
 		return cta;
 	}
