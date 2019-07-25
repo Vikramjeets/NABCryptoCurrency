@@ -21,7 +21,7 @@
                     jcr:primaryType="nt:unstructured"
                     sling:resourceType="CryptoCurrency/components/content/cryptoprofit"
                     icon="/content/dam/CryptoCurrency/EthereumLogo.png"
-                    label="ETh"
+                    label="ETH"
                     logo="/content/dam/CryptoCurrency/EthereumBackground.jpg"/>
             </responsivegrid>
         </root>
